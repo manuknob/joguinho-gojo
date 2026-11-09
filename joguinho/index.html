@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joguinho</title>
+    <!-- Importando a fonte estilo Arcade do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-board">
+        <!-- Nuvens intercaladas para não deixar espaço -->
+        <img src="midia/nuvens.gif" class="clouds clouds1">
+        <img src="midia/nuvens.gif" class="clouds clouds2">
+        <img src="midia/nuvens.gif" class="clouds clouds3">
+
+        <img src="midia/obstaculo.png" class="pipe">
+        <img src="midia/gojo.gif" class="mario">
+
+        <!-- Chão Verde -->
+        <div class="ground"></div>
+
+        <!-- Tela de Game Over com visual arcade -->
+        <div class="game-over-screen" id="gameOverScreen">
+            <h1>GAME OVER</h1>
+            <button onclick="recomecar()">Recomeçar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

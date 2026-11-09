@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 80%;
+    height: 500px;
+    border: 2px solid #000;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+/* Chão Verde (15px de altura) */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #2e8b57; /* Verde grama */
+    border-top: 3px solid #1e5e3a;
+    z-index: 2;
+}
+
+/* Personagem e Obstáculo encostados no chão verde (bottom: 15px) */
+.pipe {
+    position: absolute;
+    bottom: 15px;
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear;
+    z-index: 3;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 15px;
+    z-index: 3;
+}
+
+/* Nuvens sem espaços em branco (3 imagens intercaladas) */
+.clouds {
+    position: absolute;
+    width: 550px;
+    top: 20px;
+    right: -550px;
+    animation: clouds-animation 12s linear infinite;
+    z-index: 1;
+}
+
+.clouds1 {
+    animation-delay: 0s;
+}
+
+.clouds2 {
+    animation-delay: 4s;
+}
+
+.clouds3 {
+    animation-delay: 8s;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 15px;
+    }
+    40% {
+        bottom: 195px;
+    }
+    50% {
+        bottom: 195px;
+    }
+    60% {
+        bottom: 195px;
+    }
+    100% {
+        bottom: 15px;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+/* Estilos da Tela de Game Over - Estilo Arcade */
+.game-over-screen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.game-over-screen h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 36px;
+    color: #ff0055;
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 0px #000, 
+                 6px 6px 0px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.game-over-screen button {
+    font-family: 'Press Start 2P', monospace;
+    padding: 14px 20px;
+    font-size: 14px;
+    background-color: #f7d51d;
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 4px 4px 0px #000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.game-over-screen button:hover {
+    background-color: #ffea5d;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000;
+}
+
+.game-over-screen button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
